@@ -9981,7 +9981,7 @@
 	  cheese_delay: 400,
 	  flash_duration: 1000,
 	  ready_delay: 2000,
-	  finish_delay: 5000,
+	  finish_delay: 2500,
 	
 	  // The amount of time we should pause between each frame shutter
 	  // I tend to bump this up when 1) photobooth participants want more
@@ -14011,7 +14011,6 @@
 	   */
 	  slideInNext: function slideInNext() {
 	    this.resetState();
-	    this.modalMessage('Next!');
 	    this.all.hide();
 	    this.all.transform('t' + -this.config.window_width * 2 + ',0');
 	    this.animate('in', function () {

@@ -240,7 +240,6 @@ var PhotoView = Backbone.View.extend({
    */
   slideInNext: function () {
     this.resetState();
-    this.modalMessage('Next!');
     this.all.hide();
     this.all.transform(`t${-this.config.window_width * 2},0`);
     this.animate('in', function () {
