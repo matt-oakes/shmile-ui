@@ -40,6 +40,7 @@ Shmile.prototype.initialize = function () {
   window.socketProxy = socketProxy;
 
   bv.render();
+  rbv.render();
   p.render();
 };
 
