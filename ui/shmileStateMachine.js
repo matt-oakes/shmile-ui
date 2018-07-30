@@ -89,12 +89,11 @@ var ShmileStateMachine = function (photoView, socket, appState, config, buttonVi
       onenterreview_composited: function (e, f, t) {
         self.socket.emit('composite');
         self.photoView.showOverlay(true);
-        self.photoView.fadeIn();
+        self.reviewButtonView.fadeIn();
       },
       onleavereview_composited: function (e, f, t) {
         // Clean up
         self.photoView.animate('out');
-        self.reviewButtonView.hidePhotoReviewButtons();
         self.photoView.slideInNext();
       },
       onchangestate: function (e, f, t) {
