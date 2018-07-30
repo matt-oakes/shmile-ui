@@ -5,11 +5,9 @@ var Config = {
   window_width: $(window).width(),
   window_height: $(window).height() - 10,
   overlay_delay: 2000,
-  next_delay: 10000,
   cheese_delay: 400,
   flash_duration: 1000,
   ready_delay: 2000,
-  nice_delay: 5000,
 
   // The amount of time we should pause between each frame shutter
   // I tend to bump this up when 1) photobooth participants want more

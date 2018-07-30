@@ -21,13 +21,14 @@ import StateMachine from 'javascript-state-machine';
  * @param [AppState] appState Global initialized state
  * @param [Config] config     The configuration options passed to the app
  */
-var ShmileStateMachine = function (photoView, socket, appState, config, buttonView, cameraUtils) {
+var ShmileStateMachine = function (photoView, socket, appState, config, buttonView, reviewButtonView, cameraUtils) {
   this.photoView = photoView;
   this.socket = socket;
   this.appState = appState;
   this.config = config;
   this.buttonView = buttonView;
-	  this.cameraUtils = cameraUtils;
+  this.reviewButtonView = reviewButtonView;
+	this.cameraUtils = cameraUtils;
 
   var self = this;
 
@@ -88,16 +89,13 @@ var ShmileStateMachine = function (photoView, socket, appState, config, buttonVi
       onenterreview_composited: function (e, f, t) {
         self.socket.emit('composite');
         self.photoView.showOverlay(true);
-        setTimeout(function () {
-          self.fsm.next_set();
-        }, self.config.next_delay);
+        self.photoView.fadeIn();
       },
       onleavereview_composited: function (e, f, t) {
         // Clean up
         self.photoView.animate('out');
-        self.photoView.modalMessage('Nice!', self.config.nice_delay, 200, function () {
-          self.photoView.slideInNext();
-        });
+        self.reviewButtonView.hidePhotoReviewButtons();
+        self.photoView.slideInNext();
       },
       onchangestate: function (e, f, t) {
         console.log(`fsm received event ${e}, changing state from ${f} to ${t}`);
