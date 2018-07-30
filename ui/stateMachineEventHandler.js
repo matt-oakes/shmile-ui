@@ -11,6 +11,9 @@ StateMachineEventHandler.prototype.init = function () {
 	  this.channel.bind('ui_button_pressed', function () {
 		  self.stateMachine.fsm.ui_button_pressed();
 	});
+	  this.channel.bind('next_set', function () {
+		  self.stateMachine.fsm.next_set();
+	});
 };
 
 module.exports = StateMachineEventHandler;
