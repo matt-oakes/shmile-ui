@@ -14160,6 +14160,10 @@
 	  this.nextButton = (0, _jquery2.default)('button#next-button');
 	  this.printButton = (0, _jquery2.default)('button#print-button');
 	
+	  var containerX = (_config2.default.window_width - this.container.outerWidth()) / 2;
+	  var containerY = (_config2.default.window_height - this.container.outerHeight()) / 2;
+	  this.container.css({ 'top': containerY, 'left': containerX });
+	
 	  this.container.hide();
 	
 	  var buttonTriggerEvt = _config2.default.is_mobile ? 'touchend' : 'click';
