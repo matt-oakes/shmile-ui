@@ -9981,6 +9981,7 @@
 	  cheese_delay: 400,
 	  flash_duration: 1000,
 	  ready_delay: 2000,
+	  finish_delay: 5000,
 	
 	  // The amount of time we should pause between each frame shutter
 	  // I tend to bump this up when 1) photobooth participants want more
@@ -14277,7 +14278,9 @@
 	      onleavereview_composited: function onleavereview_composited(e, f, t) {
 	        // Clean up
 	        self.photoView.animate('out');
-	        self.photoView.slideInNext();
+	        setTimeout(function () {
+	          self.photoView.slideInNext();
+	        }, self.config.finish_delay);
 	      },
 	      onchangestate: function onchangestate(e, f, t) {
 	        console.log('fsm received event ' + e + ', changing state from ' + f + ' to ' + t);

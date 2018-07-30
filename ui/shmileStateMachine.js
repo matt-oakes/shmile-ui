@@ -94,7 +94,9 @@ var ShmileStateMachine = function (photoView, socket, appState, config, buttonVi
       onleavereview_composited: function (e, f, t) {
         // Clean up
         self.photoView.animate('out');
-        self.photoView.slideInNext();
+        setTimeout(function() {
+          self.photoView.slideInNext();
+        }, self.config.finish_delay);
       },
       onchangestate: function (e, f, t) {
         console.log(`fsm received event ${e}, changing state from ${f} to ${t}`);
