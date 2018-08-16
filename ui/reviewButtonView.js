@@ -12,7 +12,6 @@ ReviewButtonView.prototype.render = function () {
   this.container = $('#review-buttons');
   this.nextButton = $('button#next-button');
   this.printButton = $('button#print-button');
-  self.printButton.attr({ disabled: false }).css({ opacity: 1 });
 
   var containerX = (config.window_width - this.container.outerWidth()) / 2;
   var containerY = (config.window_height - this.container.outerHeight()) / 2;
@@ -32,6 +31,7 @@ ReviewButtonView.prototype.render = function () {
 };
 
 ReviewButtonView.prototype.fadeIn = function () {
+  this.printButton.attr({ disabled: false }).css({ opacity: 1 });
   this.container.fadeIn();
 };
 
