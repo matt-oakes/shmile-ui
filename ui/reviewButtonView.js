@@ -22,6 +22,7 @@ ReviewButtonView.prototype.render = function () {
   var buttonTriggerEvt = config.is_mobile ? 'touchend' : 'click';
   this.nextButton.bind(buttonTriggerEvt, function (e) {
     self.container.fadeOut(1000);
+    self.printButton.attr({ disabled: false }).css({ opacity: 1 });
     self.channel.trigger('next_set');
   });
   this.printButton.bind(buttonTriggerEvt, function (e) {
@@ -31,7 +32,6 @@ ReviewButtonView.prototype.render = function () {
 };
 
 ReviewButtonView.prototype.fadeIn = function () {
-  this.printButton.attr({ disabled: false }).css({ opacity: 1 });
   this.container.fadeIn();
 };
 
