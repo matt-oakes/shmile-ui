@@ -26,7 +26,7 @@ Shmile.prototype.initialize = function () {
 
   var p = new PhotoView(config, appState, channel);
   var bv = new ButtonView(channel);
-  var rbv = new ReviewButtonView(channel);
+  var rbv = new ReviewButtonView(channel, socketProxy);
   var ssm = new ShmileStateMachine(p, socketProxy, appState, config, bv, rbv, CameraUtils);
 
 	  var eventHandler = new StateMachineEventHandler(ssm, channel).init();

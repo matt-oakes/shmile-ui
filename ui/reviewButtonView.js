@@ -1,8 +1,9 @@
 import config from './config';
 import $ from 'jquery';
 
-var ReviewButtonView = function (channel) {
-	  this.channel = channel;
+var ReviewButtonView = function (channel, socketProxy) {
+    this.channel = channel;
+    this.socketProxy = socketProxy;
 };
 
 ReviewButtonView.prototype.render = function () {
@@ -11,6 +12,7 @@ ReviewButtonView.prototype.render = function () {
   this.container = $('#review-buttons');
   this.nextButton = $('button#next-button');
   this.printButton = $('button#print-button');
+  self.printButton.attr({ disabled: false }).css({ opacity: 1 });
 
   var containerX = (config.window_width - this.container.outerWidth()) / 2;
   var containerY = (config.window_height - this.container.outerHeight()) / 2;
@@ -22,6 +24,10 @@ ReviewButtonView.prototype.render = function () {
   this.nextButton.bind(buttonTriggerEvt, function (e) {
     self.container.fadeOut(1000);
     self.channel.trigger('next_set');
+  });
+  this.printButton.bind(buttonTriggerEvt, function (e) {
+    self.socketProxy.emit("print");
+    self.printButton.attr({ disabled: true }).css({ opacity: 0.5 });
   });
 };
 
