@@ -18,5 +18,12 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "backbone": "1.1.2",
+    "javascript-state-machine": "2.3.5",
+    "jquery": "2.1.4",
+    "raphael": "https://github.com/DmitryBaranovskiy/raphael.git#dbe241f4c5310dd9bf3b451c538d78c6c4a0e288",
+    "underscore": "1.9.1"
+  }
 }
