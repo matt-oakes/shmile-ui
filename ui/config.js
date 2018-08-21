@@ -14,7 +14,7 @@ var Config = {
   // I tend to bump this up when 1) photobooth participants want more
   // time to review their photos between shots, and 2) when I'm shooting
   // with external flash and the flash needs more time to recharge.
-  between_snap_delay: 1000,
+  between_snap_delay: 3000,
 
   // For usability enhancements on iPad, set this to "true"
   is_mobile: false
