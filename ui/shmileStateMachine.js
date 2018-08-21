@@ -40,7 +40,8 @@ var ShmileStateMachine = function (photoView, socket, appState, config, buttonVi
       { name: 'photo_saved', from: 'waiting_for_photo', to: 'review_photo' },
       { name: 'photo_updated', from: 'review_photo', to: 'next_photo' },
       { name: 'continue_partial_set', from: 'next_photo', to: 'waiting_for_photo' },
-      { name: 'finish_set', from: 'next_photo', to: 'review_composited' },
+      { name: 'finish_set', from: 'next_photo', to: 'await_composited' },
+      { name: 'composited_image', from: 'await_composited', to: 'review_composited' },
       { name: 'next_set', from: 'review_composited', to: 'ready' }
     ],
     callbacks: {
@@ -86,9 +87,11 @@ var ShmileStateMachine = function (photoView, socket, appState, config, buttonVi
           self.fsm.continue_partial_set();
         }
       },
-      onenterreview_composited: function (e, f, t) {
+      onenterawait_composited: function (e, f, t) {
         self.socket.emit('composite');
         self.photoView.showOverlay(true);
+      },
+      onenterreview_composited: function (e, f, t) {
         self.reviewButtonView.fadeIn();
       },
       onleavereview_composited: function (e, f, t) {

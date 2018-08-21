@@ -47,6 +47,11 @@ SocketLayer.prototype.register = function (fsm) {
     console.log('photo_saved evt: ' + data.filename);
     self.fsm.photo_saved(data);
   });
+  
+  this.proxy.on('composited_image', function (data) {
+    console.log('composited_image evt: ' + data);
+    self.fsm.composited_image();
+  });
 };
 
 module.exports = SocketLayer;
