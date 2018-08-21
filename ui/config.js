@@ -10,6 +10,8 @@ var Config = {
   ready_delay: 2000,
   finish_delay: 2500,
 
+  photo_save_delay: 1000,
+
   // The amount of time we should pause between each frame shutter
   // I tend to bump this up when 1) photobooth participants want more
   // time to review their photos between shots, and 2) when I'm shooting
