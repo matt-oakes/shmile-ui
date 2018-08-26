@@ -4,6 +4,7 @@ import Backbone from 'backbone';
 import PhotoView from './photoView';
 import ButtonView from './buttonView';
 import ReviewButtonView from './reviewButtonView';
+import ProcessingView from './processingView';
 import ShmileStateMachine from './shmileStateMachine';
 import StateMachineEventHandler from './stateMachineEventHandler';
 import SocketProxy from './socketProxy';
@@ -27,9 +28,10 @@ Shmile.prototype.initialize = function () {
   var p = new PhotoView(config, appState, channel);
   var bv = new ButtonView(channel);
   var rbv = new ReviewButtonView(channel, socketProxy);
-  var ssm = new ShmileStateMachine(p, socketProxy, appState, config, bv, rbv, CameraUtils);
+  var processingView = new ProcessingView();
+  var ssm = new ShmileStateMachine(p, socketProxy, appState, config, bv, rbv, processingView, CameraUtils);
 
-	  var eventHandler = new StateMachineEventHandler(ssm, channel).init();
+	var eventHandler = new StateMachineEventHandler(ssm, channel).init();
 
   bv.fsm = ssm.fsm;
 
