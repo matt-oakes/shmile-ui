@@ -44,6 +44,7 @@ Shmile.prototype.initialize = function () {
   bv.render();
   rbv.render();
   p.render();
+  processingView.render();
 };
 
 module.exports = Shmile;
